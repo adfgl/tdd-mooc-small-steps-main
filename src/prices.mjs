@@ -1,3 +1,4 @@
+import { Temporal } from "@js-temporal/polyfill";
 import "./polyfills";
 import express from "express";
 
@@ -25,6 +26,7 @@ function createApp(database) {
 
   function parseDate(dateString) {
     if (dateString) {
+      const date2 = Temporal.PlainDate.from(dateString);
       return new Date(dateString);
     }
   }
