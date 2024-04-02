@@ -72,8 +72,12 @@ function createApp(database) {
 
   function calculateReduction(date) {
     let reduction = 0;
-    if (date && isMonday(date) && !isHoliday(date)) {
-      reduction = 35;
+    if (date){
+      let date1 = Temporal.PlainDate.from({ year: date.getFullYear(), month: date.getMonth() + 1, day: date.getDate() });
+
+      if (isMonday(date) && !isHoliday(date)){
+        reduction = 35;
+      }
     }
     return reduction;
   }
